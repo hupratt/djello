@@ -8,8 +8,7 @@ https://docs.djangoproject.com/en/1.11/howto/deployment/wsgi/
 """
 
 import os, sys
-sys.path.append("/home/ubuntu/Dev/djello")
-sys.path.append("/home/ubuntu/Dev/djello/backend/djello")
+sys.path.append("/home/ubuntu/Dev/djello/backend")
 
 
 from django.core.wsgi import get_wsgi_application
