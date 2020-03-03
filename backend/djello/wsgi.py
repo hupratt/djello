@@ -7,7 +7,10 @@ For more information on this file, see
 https://docs.djangoproject.com/en/1.11/howto/deployment/wsgi/
 """
 
-import os
+import os, sys
+sys.path.append("/home/ubuntu/Dev/djello")
+sys.path.append("/home/ubuntu/Dev/djello/backend/djello")
+
 
 from django.core.wsgi import get_wsgi_application
 
