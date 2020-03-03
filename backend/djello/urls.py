@@ -15,8 +15,16 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from django.contrib import admin
+from django.shortcuts import render
+from django.conf import settings
+from django.conf.urls.static import static
+
+
+def index(request):
+    return render(request, "frontend/index.html")
 
 urlpatterns = [
+    url(r"^.*", index),
     url(r'^admin/', admin.site.urls),
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
 
@@ -24,3 +32,6 @@ urlpatterns = [
     url(r'^api/', include('lists.urls')),
     url(r'^api/', include('cards.urls')),
 ]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'frontend'
 ]
 
 MIDDLEWARE = [
@@ -141,6 +142,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, "static")
 
 # Django Rest Framework
 REST_FRAMEWORK = {
@@ -156,9 +158,8 @@ CSRF_HEADER_NAME = "HTTP_X_CSRFTOKEN"
 CSRF_COOKIE_NAME = "csrftoken"
 
 # CORS settings
-CORS_ORIGIN_WHITELIST = (
-    'localhost:3000',
-    'localhost:8000'
-)
+CORS_ORIGIN_WHITELIST = ("http://localhost:8000", "https://trello.pythonbots.site")
+
 
 CORS_URLS_REGEX = r'^/api/.*$'
+
