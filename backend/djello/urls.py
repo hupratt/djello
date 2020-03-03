@@ -24,13 +24,13 @@ def index(request):
     return render(request, "frontend/index.html")
 
 urlpatterns = [
-    url(r"^.*", index),
     url(r'^admin/', admin.site.urls),
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
 
     url(r'^api/', include('boards.urls')),
     url(r'^api/', include('lists.urls')),
     url(r'^api/', include('cards.urls')),
+    url(r"^.*", index),
 ]
 
 if settings.DEBUG:
