@@ -159,7 +159,7 @@ CSRF_COOKIE_NAME = "csrftoken"
 
 # CORS settings
 CORS_ORIGIN_WHITELIST = ("http://localhost:8000", "https://trello.pythonbots.site")
-
+CORS_ORIGIN_ALLOW_ALL = True
 
 CORS_URLS_REGEX = r'^/api/.*$'
 
