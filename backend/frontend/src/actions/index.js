@@ -2,6 +2,7 @@ import axios from 'axios';
 import { normalize } from 'normalizr';
 import schema from './schema';
 import { selectList } from '../reducers/Board';
+import { endpoint } from '../../constants';
 import {
 // CARD
   ADD_CARD,
@@ -42,7 +43,8 @@ export const addCard = (list, text) => {
   return (dispatch, getState) => {
     return axios({
       method: 'POST',
-      url: 'http://localhost:8000/api/cards/',
+      url: `${endpoint}/api/cards/`,
+
       data: {
         text,
         "list": list.id
@@ -82,7 +84,7 @@ export const updateCard = card => {
   return dispatch => {
     return axios({
       method: 'PUT',
-      url: 'http://localhost:8000/api/cards/' + card.id + '/',
+      url: `${endpoint}/api/cards/${card.id}/`,
       data: {
         "text": card.text,
         "list": card.list
@@ -117,7 +119,7 @@ export const deleteCard = card => {
   return (dispatch, getState) => {
     return axios({
       method: 'DELETE',
-      url: 'http://localhost:8000/api/cards/' + card.id + '/'
+      url: `${endpoint}/api/cards/${card.id}/`
     })
     .then(response => {
       console.log("DELETE Card(id: " + card.id + ")");
@@ -150,7 +152,7 @@ export const moveCard = (dragList, dragIndex, hoverList, hoverIndex, dragId) => 
   return (dispatch, getState) => {
     return axios({
       method: 'PATCH',
-      url: 'http://localhost:8000/api/cards/' + dragId + '/',
+      url: `${endpoint}/api/cards/${dragId}/`,
       data: {
         "list": hoverList
       }
@@ -204,7 +206,7 @@ export const updateCardsOrder = (listId, cardsOrder) => {
   return dispatch => {
     return axios({
       method: 'PATCH',
-      url: 'http://localhost:8000/api/lists/' + listId + '/',
+      url: `${endpoint}/api/lists/${listId}/`,
       data: {
         "cards_order": cardsOrder
       }
@@ -227,7 +229,7 @@ export const addList = (board, name) => {
   return dispatch => {
     return axios({
       method: 'POST',
-      url: 'http://localhost:8000/api/lists/',
+      url: `${endpoint}/api/lists/`,
       data: {
         name,
         "board": board.id
@@ -262,7 +264,7 @@ export const deleteList = list => {
   return dispatch => {
     return axios({
       method: 'DELETE',
-      url: 'http://localhost:8000/api/lists/' + list.id + '/'
+      url: `${endpoint}/api/lists/${list.id}/`
     })
     .then(response => {
       console.log("DELETE List(id: " + list.id + ")");
@@ -291,7 +293,7 @@ export const getBoards = () => {
   return dispatch => {
     return axios({
       method: 'GET',
-      url: 'http://localhost:8000/api/boards/',
+      url: `${endpoint}/api/boards/`,
       headers: []
     })
     .then(response => {
@@ -329,7 +331,7 @@ export const getBoard = id => {
   return dispatch => {
     return axios({
       method: 'GET',
-      url: 'http://localhost:8000/api/boards/' + id + '/',
+      url: `${endpoint}/api/boards/${id}/`,
       headers: []
     })
     .then(response => {
@@ -368,7 +370,7 @@ export const addBoard = name => {
   return dispatch => {
     return axios({
       method: 'POST',
-      url: 'http://localhost:8000/api/boards/',
+      url: `${endpoint}/api/boards/`,
       data: {
         name
       }
@@ -402,7 +404,7 @@ export const deleteBoard = board => {
   return dispatch => {
     return axios({
       method: 'DELETE',
-      url: 'http://localhost:8000/api/boards/' + board.id + '/'
+      url: `${endpoint}/api/boards/${board.id}/`,
     })
     .then(response => {
       console.log("DELETE Board(id: " + board.id + ")");
