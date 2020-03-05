@@ -30,7 +30,7 @@ urlpatterns = [
     path('api/', include('boards.urls')),
     path('api/', include('lists.urls')),
     path('api/', include('cards.urls')),
-    re_path(r"^.*", index),
+    path("/", index),
 ]
 
 if settings.DEBUG:
