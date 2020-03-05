@@ -13,24 +13,24 @@ Including another URLconf
     1. Import the include() function: from django.conf.urls import url, include
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
-from django.conf.urls import url, include
 from django.contrib import admin
 from django.shortcuts import render
 from django.conf import settings
 from django.conf.urls.static import static
+from django.urls import path, include, re_path
 
 
 def index(request):
     return render(request, "frontend/index.html")
 
 urlpatterns = [
-    url(r'^admin/', admin.site.urls),
-    url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
+    path('admin/', admin.site.urls),
+    path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
 
-    url(r'^api/', include('boards.urls')),
-    url(r'^api/', include('lists.urls')),
-    url(r'^api/', include('cards.urls')),
-    url(r"^.*", index),
+    path('api/', include('boards.urls')),
+    path('api/', include('lists.urls')),
+    path('api/', include('cards.urls')),
+    re_path(r"^.*", index),
 ]
 
 if settings.DEBUG:
