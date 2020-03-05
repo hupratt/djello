@@ -18,7 +18,7 @@ from django.shortcuts import render
 from django.conf import settings
 from django.conf.urls.static import static
 from django.urls import path, include, re_path
-
+from django.conf.urls import url
 
 def index(request):
     return render(request, "frontend/index.html")
@@ -30,7 +30,7 @@ urlpatterns = [
     path('api/', include('boards.urls')),
     path('api/', include('lists.urls')),
     path('api/', include('cards.urls')),
-    re_path(r'^.*/$', index),
+    re_path(r'^$', index)
 ]
 
 if settings.DEBUG:
