@@ -94,7 +94,7 @@
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"endpoint\", function() { return endpoint; });\n// export const endpoint = 'http://localhost:8000'\nvar endpoint = 'https://trello.pythonbots.site';\n\n//# sourceURL=webpack:///./constants.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"endpoint\", function() { return endpoint; });\n// export const endpoint = 'http://localhost:8000'\nvar endpoint = \"http://127.0.0.1:8000\";\n\n//# sourceURL=webpack:///./constants.js?");
 
 /***/ }),
 
